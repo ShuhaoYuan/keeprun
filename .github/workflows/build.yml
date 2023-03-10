@@ -34,14 +34,13 @@ jobs:
       #     prerelease: false
 
       - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
+        uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: target/release/keeprun
-          asset_name: keeprun
-          tag: ${{ github.ref }}
-          overwrite: true
-          body: "This is my release file"
+          file: "target/release/keeprun"
+          tags: true
+          draft: true
 
       # - name: Upload Release
       #   uses: ncipollo/release-action@v1
