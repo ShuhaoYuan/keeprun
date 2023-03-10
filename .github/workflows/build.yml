@@ -38,17 +38,30 @@ jobs:
       - name: Build and Test
         run: cargo build --release && cargo test
 
+      # - name: Create Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: v0.1.0
+      #     release_name: Release v0.1.0
+      #     body: |
+      #       A new release of the Rust executable
+      #     draft: false
+      #     prerelease: false
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v0.1.0
-          release_name: Release v0.1.0
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }} (draft)
           body: |
-            A new release of the Rust executable
-          draft: false
+            Test upload-to-github-release works with `actions/create-release`
+          draft: true
           prerelease: false
 
       - name: Upload binaries to release
