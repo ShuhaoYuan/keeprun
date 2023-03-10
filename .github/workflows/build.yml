@@ -39,7 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           file: "target/release/keeprun"
-          tags: true
+          tags: v0.1.0
           draft: false
 
       # - name: Upload Release
