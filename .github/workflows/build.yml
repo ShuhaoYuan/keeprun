@@ -20,27 +20,28 @@ jobs:
       - name: Build and Test
         run: cargo build --release && cargo test
 
-      # - name: Create Release
-      #   id: create_release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: v0.1.0
-      #     release_name: Release v0.1.0
-      #     body: |
-      #       A new release of the Rust executable
-      #     draft: false
-      #     prerelease: false
-
-      - name: Upload binaries to release
-        uses: xresloader/upload-to-github-release@v1
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           file: "target/release/keeprun"
-          tags: v0.1.0
+          tag_name: v0.1.0
+          release_name: Release v0.1.0
+          body: |
+            A new release of the Rust executable
           draft: false
+          prerelease: false
+
+      # - name: Upload binaries to release
+      #   uses: xresloader/upload-to-github-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     file: "target/release/keeprun"
+      #     tags: v0.1.0
+      #     draft: false
 
       # - name: Upload Release
       #   uses: ncipollo/release-action@v1
