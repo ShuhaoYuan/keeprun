@@ -26,11 +26,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: "target/release/keeprun"
           tag_name: v0.1.0
           release_name: Release v0.1.0
-          body: |
-            A new release of the Rust executable
+          body_path: "target/release/keeprun"
+          # body: |
+            # A new release of the Rust executable
           draft: false
           prerelease: false
 
