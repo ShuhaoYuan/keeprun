@@ -40,7 +40,7 @@ jobs:
         with:
           file: "target/release/keeprun"
           tags: true
-          draft: true
+          draft: false
 
       # - name: Upload Release
       #   uses: ncipollo/release-action@v1
