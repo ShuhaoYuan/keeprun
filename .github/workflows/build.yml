@@ -31,7 +31,7 @@ jobs:
           tag_name: v0.1.0
           release_name: Release v0.1.0
           body: |
-            Test upload-to-github-release works with `actions/create-release`
+            Keep the program running, and restart it if it crashes. 保持程序运行，如果程序崩溃要进行重启。
           draft: true
           prerelease: false
 
